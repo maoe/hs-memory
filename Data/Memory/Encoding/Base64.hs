@@ -268,7 +268,7 @@ fromBase64 dst src len
                 c <- peekByteOff src (i+2)
                 d <- peekByteOff src (i+3)
 
-                let (nbBytes, c',d') =
+                let !(nbBytes, c',d') =
                         case (c,d) of
                             (0x3d, 0x3d) -> (2, 0x30, 0x30)
                             (0x3d, _   ) -> (0, c, d) -- invalid: automatically 'c' will make it error out
