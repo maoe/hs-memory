@@ -258,7 +258,7 @@ rsetOpenBSD (W8# w)
 -- the user should use unBase64Length to compute the correct length, or check that
 -- the length specification is proper. no check is done here.
 fromBase64 :: Ptr Word8 -> Ptr Word8 -> Int -> IO (Maybe Int)
-fromBase64 dst src len
+fromBase64 !dst !src len
     | len == 0  = return Nothing
     | otherwise = loop 0 0
   where loop !di i
