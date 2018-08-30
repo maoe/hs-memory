@@ -115,7 +115,7 @@ unBase64Length src len
         let dstLen = if last1Byte == eqAscii
                         then if last2Byte == eqAscii then 2 else 1
                         else 0
-        return $ Just $ (len `div` 4) * 3 - dstLen
+        return $! Just $! (len `div` 4) * 3 - dstLen
   where
         eqAscii :: Word8
         eqAscii = fromIntegral (fromEnum '=')
