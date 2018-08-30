@@ -296,7 +296,7 @@ fromBase64 dst src len
                         loop (di + 3) (i + 4)
 
         decode4 :: Word8 -> Word8 -> Word8 -> Word8 -> Either Int (Word8, Word8, Word8)
-        decode4 a b c d =
+        decode4 !a !b !c !d =
             case (rset a, rset b, rset c, rset d) of
                 (0xff, _   , _   , _   ) -> Left 0
                 (_   , 0xff, _   , _   ) -> Left 1
