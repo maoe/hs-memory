@@ -261,7 +261,7 @@ fromBase64 :: Ptr Word8 -> Ptr Word8 -> Int -> IO (Maybe Int)
 fromBase64 dst src len
     | len == 0  = return Nothing
     | otherwise = loop 0 0
-  where loop di i
+  where loop !di i
             | i == (len-4) = do
                 a <- peekByteOff src i
                 b <- peekByteOff src (i+1)
