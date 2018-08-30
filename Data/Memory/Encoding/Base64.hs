@@ -307,6 +307,7 @@ fromBase64 dst src len
                         y = (rb `unsafeShiftL` 4) .|. (rc `unsafeShiftR` 2)
                         z = (rc `unsafeShiftL` 6) .|. rd
                      in Right (x,y,z)
+        {-# INLINE decode4 #-}
 
         rset :: Word8 -> Word8
         rset (W8# w)
